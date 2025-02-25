@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Walkin Talkin
+
+A text-to-speech web application that generates audio in the style of Christopher Walken's distinctive voice.
+
+## Features
+
+- Type or select text to be spoken in Christopher Walken's style
+- Sample phrases to get started quickly
+- Audio playback controls
+- Modern, responsive UI built with Next.js and Tailwind CSS
+- Toast notifications for user feedback
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js (version 18.x or higher recommended)
+- npm (comes with Node.js)
+
+### Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd walkentalk
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Start the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open your browser and navigate to `http://localhost:3000`
 
-## Learn More
+## Implementation Details
 
-To learn more about Next.js, take a look at the following resources:
+### Demo Mode
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This application currently runs in demo mode and returns a placeholder audio file. To integrate with a real text-to-speech API that can mimic Christopher Walken's voice, you would need to:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Set up an account with a TTS provider that supports voice cloning/voice styles (e.g., ElevenLabs, Play.ht, etc.)
+2. Update the `generateWalkenSpeech` function in `src/lib/tts.ts` to use your API credentials
+3. Create environment variables for your API keys (see `.env.example`)
 
-## Deploy on Vercel
+### Example Integration with ElevenLabs
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+To integrate with ElevenLabs:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Create a `.env.local` file with your API key:
+```
+ELEVENLABS_API_KEY=your_api_key_here
+ELEVENLABS_VOICE_ID=your_voice_id_here
+```
+
+2. Update the `generateWalkenSpeech` function in `src/lib/tts.ts` to make real API calls (uncomment the commented code and modify as needed)
+
+## Technology Stack
+
+- [Next.js](https://nextjs.org/) - React framework
+- [TypeScript](https://www.typescriptlang.org/) - Type safety
+- [Tailwind CSS](https://tailwindcss.com/) - Styling
+- [Radix UI](https://www.radix-ui.com/) - Accessible UI components
+- [use-sound](https://github.com/joshwcomeau/use-sound) - Sound playback
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Disclaimer
+
+This application is for demonstration purposes. It does not use actual Christopher Walken voice data, and in a production environment, you would need to ensure you have the appropriate rights to create and use a voice that mimics a celebrity.
