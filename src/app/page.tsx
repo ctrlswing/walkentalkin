@@ -309,10 +309,16 @@ export default function Home() {
     type: "default" as "default" | "success" | "error",
   });
   const [characterCount, setCharacterCount] = useState(0);
-  const [visitorCount] = useState(Math.floor(Math.random() * 10000) + 5000);
+  const [visitorCount, setVisitorCount] = useState(0);
+
+  // Initialize visitor count on client side only
+  useEffect(() => {
+    setVisitorCount(Math.floor(Math.random() * 10000) + 5000);
+  }, []);
 
   // Audio player setup
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
   // Update character count when input changes
   useEffect(() => {
@@ -354,9 +360,12 @@ export default function Home() {
     }
   };
 
-  // Use a sample phrase
-  const useSamplePhrase = (phrase: string) => {
+  // Move useSamplePhrase outside of component and make it a regular function
+  const handleSamplePhrase = (phrase: string) => {
     setInputText(phrase);
+    if (textAreaRef.current) {
+      textAreaRef.current.value = phrase;
+    }
   };
 
   // Show toast notification
@@ -528,6 +537,7 @@ export default function Home() {
                                                   setInputText(e.target.value)
                                                 }
                                                 disabled={isGenerating}
+                                                ref={textAreaRef}
                                               />
                                               <div className="absolute bottom-3 right-3 text-xs text-gray-600">
                                                 {characterCount} characters
@@ -642,7 +652,7 @@ export default function Home() {
                                               <div
                                                 key={index}
                                                 onClick={() =>
-                                                  useSamplePhrase(phrase)
+                                                  handleSamplePhrase(phrase)
                                                 }
                                                 className="text-left p-4 bg-white border-2 outset border-gray-400 hover:bg-blue-100 text-sm cursor-pointer"
                                               >
@@ -739,12 +749,12 @@ export default function Home() {
             <tr>
               <td align="center">
                 <div className="text-center">
-                  <p className="text-sm mb-2">
+                  <div className="text-sm mb-2">
                     <EmailIcon />
                     <a href="#" className="text-yellow-300 underline">
                       contact@walkintalkin.com
                     </a>
-                  </p>
+                  </div>
                   <div className="flex justify-center gap-4 mb-2">
                     <a href="#" className="text-white hover:text-yellow-300">
                       <HomeIcon />
@@ -791,12 +801,12 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <p className="text-xs text-gray-300">
+                  <div className="text-xs text-gray-300">
                     This site is best viewed in 800x600 resolution
-                  </p>
-                  <p className="text-xs text-gray-300 mt-1">
+                  </div>
+                  <div className="text-xs text-gray-300 mt-1">
                     © 2001-2024 Walkin' Talkin' - All Rights Reserved
-                  </p>
+                  </div>
                 </div>
               </td>
             </tr>
