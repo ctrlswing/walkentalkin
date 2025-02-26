@@ -388,8 +388,8 @@ export default function Home() {
         <div className="marquee-content">
           <span className="inline-flex items-center">
             <ConstructionIcon />
-            WELCOME TO WALKIN' TALKIN' - THE BEST CHRISTOPHER WALKEN VOICE
-            GENERATOR ON THE WEB!
+            WELCOME TO WALKIN&apos; TALKIN&apos; - THE BEST CHRISTOPHER WALKEN
+            VOICE GENERATOR ON THE WEB!
             <NewIcon />
             SITE BEST VIEWED IN INTERNET EXPLORER 6.0 OR NETSCAPE NAVIGATOR
             <ConstructionIcon />
