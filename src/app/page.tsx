@@ -10,9 +10,8 @@ import { motion, AnimatePresence } from "framer-motion";
 const SAMPLE_PHRASES = [
   "I got a fever, and the only prescription is more cowbell!",
   "Ya know, this watch I got here was first purchased by your great-grandfather.",
-  "Two mice, fell into a bucket of cream. The first mouse quickly gave up and drowned.",
-  "You're talkin' to me all wrong. It's the wrong tone.",
-  "Lions, tigers, bears... oh my! I mean, they'll kill ya... but they won't hurt ya.",
+  "You&apos;re talkin&apos; to me all wrong. It&apos;s the wrong tone.",
+  "Lions, tigers, bears... oh my! I mean, they&apos;ll kill ya... but they won&apos;t hurt ya.",
 ];
 
 // Retro icons as components
@@ -416,8 +415,10 @@ export default function Home() {
                             }}
                           >
                             <span className="text-yellow-300 twinkle">★</span>{" "}
-                            Walkin'{" "}
-                            <span className="text-yellow-300">Talkin'</span>{" "}
+                            Walkin&apos;{" "}
+                            <span className="text-yellow-300">
+                              Talkin&apos;
+                            </span>{" "}
                             <span
                               className="text-yellow-300 twinkle"
                               style={{ animationDelay: "0.5s" }}
@@ -805,7 +806,7 @@ export default function Home() {
                     This site is best viewed in 800x600 resolution
                   </div>
                   <div className="text-xs text-gray-300 mt-1">
-                    © 2001-2024 Walkin' Talkin' - All Rights Reserved
+                    © 2001-2024 Walkin&apos; Talkin&apos; - All Rights Reserved
                   </div>
                 </div>
               </td>

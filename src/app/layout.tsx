@@ -9,9 +9,10 @@ const comicNeue = Comic_Neue({
 });
 
 export const metadata: Metadata = {
-  title: "Walkin Talkin - Text-to-Speech in Christopher Walken's Style",
+  title:
+    "Walkin&apos; Talkin&apos; - Text-to-Speech in Christopher Walken&apos;s Style",
   description:
-    "Generate speech in the style of Christopher Walken's distinctive voice",
+    "Generate speech in the style of Christopher Walken&apos;s distinctive voice",
   keywords: [
     "Christopher Walken",
     "text to speech",
