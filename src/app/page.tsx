@@ -291,7 +291,7 @@ export default function Home() {
       <footer className="w-full bg-gray-900 text-white p-6 border-t border-gray-800">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-sm">
-            Walkin' Talkin' - Experience the distinctive voice of Christopher Walken
+            Walkin' Talk - Experience the distinctive voice of Christopher Walken
           </p>
           <p className="text-xs mt-2 text-gray-500">
             This is a demonstration app using AI voice synthesis technology.
